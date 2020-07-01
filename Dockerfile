@@ -3,6 +3,8 @@ FROM tillhoff/debian
 RUN apt-get install python-pip latexmk -y
 
 RUN apt-get install texlive-xetex texlive texlive-latex-extra texlive-generic-extra texlive-lang-german texlive-bibtex-extra biber -y
+# Following line is not used, as it downloads EVERY language and therefore requires several hundred megabytes
+#RUN apt-get install texlive-full
 
 RUN pip install pygments
 
