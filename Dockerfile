@@ -1,13 +1,14 @@
-FROM debian:buster
+FROM tillhoff/debian
 
-LABEL maintainer="info@enforge.de"
+RUN apt-get install python-pip latexmk -y
 
-### update os
-RUN apt-get update && \
-apt-get upgrade -y && \
-apt-get autoremove -y && \
-apt-get clean -y && \
-rm -rf /tmp/* /var/tmp/* /var/cache/apt/* /var/cache/distfiles/*
+RUN apt-get install texlive-xetex texlive texlive-latex-extra texlive-generic-extra texlive-lang-german texlive-bibtex-extra biber -y
 
-### startup command
-CMD cd /example; /bin/bash run.sh
+RUN pip install pygments
+
+RUN mkdir /temp
+
+WORKDIR /temp
+
+# latexmk command has to executed twice for completing properly
+CMD ["/bin/bash","-c","cp -dr /tex/* /temp/ && latexmk -shell-escape $arg -quiet main.tex 2>&1 1> /dev/null || latexmk -shell-escape $arg -quiet main.tex && cp /temp/main.pdf /tex/ || cp /temp/main.log /tex/"]
