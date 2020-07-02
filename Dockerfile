@@ -10,7 +10,7 @@ RUN pip install pygments
 
 RUN mkdir /temp
 
-ENV textype=pdflatex
+ENV textype=pdf
 ENV filename=main.tex
 
 WORKDIR /temp
