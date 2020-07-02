@@ -15,5 +15,7 @@ ENV filename=main.tex
 
 WORKDIR /temp
 
-# latexmk command has to executed twice for completing properly
+# ? eventually latexmk command has to executed twice for completing properly
 CMD ["/bin/bash","-c","cp -dr /tex/* /temp/ && latexmk -shell-escape -$textype $filename 2>&1 1> /dev/null && cp /temp/main.pdf /tex/ || cp /temp/main.log /tex/"]
+# The following line only outputs the last part of the compiling output. This may be better for beginners but hides progress and hides earlier warnings.
+#CMD ["/bin/bash","-c","cp -dr /tex/* /temp/ && latexmk -shell-escape -$textype $filename 2>&1 1> /dev/null | tail | sed '/^============$/ q' && cp /temp/main.pdf /tex/ || cp /temp/main.log /tex/"]
