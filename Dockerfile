@@ -16,6 +16,6 @@ ENV filename=main.tex
 WORKDIR /temp
 
 # ? eventually latexmk command has to executed twice for completing properly
-CMD ["/bin/bash","-c","cp -dr /tex/* /temp/ && rm /temp/*.pdf && latexmk -shell-escape -$textype $filename && cp /temp/main.pdf /tex/ || cp /temp/main.log /tex/"]
+CMD ["/bin/bash","-c","cp -dr /tex/* /temp/ && rm /temp/*.pdf || true && latexmk -shell-escape -$textype $filename && cp /temp/main.pdf /tex/ || cp /temp/main.log /tex/"]
 # The following line would output only the last part of the compiling output. This may be better for beginners but hides progress and hides earlier warnings.
 #CMD ["/bin/bash","-c","cp -dr /tex/* /temp/ && rm /temp/*.pdf && latexmk -shell-escape -$textype $filename | tail | sed '/^============$/ q' && cp /temp/main.pdf /tex/ || cp /temp/main.log /tex/"]
