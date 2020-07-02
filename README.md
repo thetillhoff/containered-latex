@@ -3,8 +3,12 @@ A latex compiler in a docker container, so the actual host stays clear of all th
 
 ## usage
 
-For plain latex compilation run `docker run --rm -it -v ${PWD}:/tex tillhoff/latex`.
+There are two variables that can be adjusted:
+- `textype`: Can be either pdf (->pdflatex, default) or xelatex
+- `filename`: Must match the main `.tex`-file. Default is `main.tex`
 
-For additional arguments like f.e. using xelatex run `docker run --rm -it -v ${PWD}:/tex -e textype=xelatex xelatex-thesis`.
+So to compile a main.tex with pdflatex it is sufficient to run `docker run --rm -it -v ${PWD}:/tex tillhoff/latex`.
 
-> Another example is `docker run --rm -it -v ${PWD}:/tex -e filename=main.tex tillhoff/latex pdflatex`
+For additional arguments like f.e.
+- using xelatex run `docker run --rm -it -v ${PWD}:/tex -e textype=xelatex tillhoff/latex`.
+- using another filename run `docker run --rm -it -v ${PWD}:/tex -e filename=main.tex tillhoff/latex`.
