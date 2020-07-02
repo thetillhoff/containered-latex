@@ -16,4 +16,4 @@ ENV filename=main.tex
 WORKDIR /temp
 
 # latexmk command has to executed twice for completing properly
-CMD ["/bin/bash","-c","cp -dr /tex/* /temp/ && latexmk -shell-escape $textype -quiet $filename 2>&1 1> /dev/null || latexmk -shell-escape $textype -quiet $filename && cp /temp/main.pdf /tex/ || cp /temp/main.log /tex/"]
+CMD ["/bin/bash","-c","cp -dr /tex/* /temp/ && latexmk -shell-escape -$textype $filename 2>&1 1> /dev/null && cp /temp/main.pdf /tex/ || cp /temp/main.log /tex/"]
