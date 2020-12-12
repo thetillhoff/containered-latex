@@ -1,3 +1,5 @@
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tillhoff/containered-latex/Publish%20image%20to%20docker%20hub)
+
 # containered latex compiler
 A latex compiler in a docker container, so the actual host stays clear of all the (temporary) necessary packages. As docker is cross-platform, so it this latex compiler.
 
