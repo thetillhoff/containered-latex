@@ -8,7 +8,7 @@ A latex compiler in a docker container, so the actual host stays clear of all th
 ## usage
 
 There are two variables that can be adjusted:
-- `textype`: Can either be `pdf` (->pdflatex, default) or `xelatex`
+- `textype`: Can either be `pdf` (default, resolves to pdflatex) or `xelatex`
 - `filename`: Must match the main `.tex`-filename. Default is `main.tex`
 
 So to compile a `main.tex` with pdflatex it is sufficient to run `docker run --rm -it -v ${PWD}:/tex tillhoff/latex`.
