@@ -1,4 +1,4 @@
-FROM thetillhoff/debian
+FROM ghcr.io/thetillhoff/debian
 
 RUN apt-get install python-pip latexmk -y
 
