@@ -1,8 +1,8 @@
 FROM ghcr.io/thetillhoff/debian
 
-RUN apt-get install python-pip latexmk -y
+RUN apt-get update && apt-get install -y python-pip latexmk
 
-RUN apt-get install texlive-xetex texlive texlive-latex-extra texlive-generic-extra texlive-lang-german texlive-bibtex-extra biber -y
+RUN apt-get install -y texlive-xetex texlive texlive-latex-extra texlive-generic-extra texlive-lang-german texlive-bibtex-extra biber
 # Following line is not used, as it downloads EVERY language and therefore requires several hundred megabytes
 #RUN apt-get install texlive-full
 
